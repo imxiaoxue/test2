@@ -69,20 +69,97 @@ if 50 < power <=100:
 else:
     print(0.5*50+0.7*100+1*(power-100))
 
-num = int(input("请输入月份："))
-if num in (1, 3, 5, 7, 8, 10, 12):
-    print('day = 31')
-elif num == 2:
-    year = int(input('年份：'))
-if (year % 4 == 0 and year % 100 != 0 or year % 400 == 0):
-    print("day = 29")
+
+#使用递归求n!
+def fact(j):
+    sum = 0
+    if j == 0:
+        sum = 1
+    else:
+        sum = j*fact(j-1)
+    return sum
+for i in range(int(input())):
+    print('%d! = %d'%(i,fact(i)))
+
+
+#对十个数进行排序
+n = 10
+#input data
+print('please input ten num:n')
+l = []
+for i in range(n):
+    l.append(int(input('input a number:n')))
+print()
+for i in range(n):
+    print(l[i])
+print()
+# sort ten num
+for i in range(n-1):
+    min = i
+    for j in range(i+1,n):
+        if l[min]>l[j]:min = j
+    l[i],l[min] = l[min],l[i]
+print('after sorted')
+for i in range(n):
+    print(l[i])
+
+#输入矩阵，求各斜行的和  false
+a = []
+sum = 0.0
+for i in range(3):
+    a.append([])
+    for j in range(3):
+        a[i].append(float(input('input num:n')))
+for i in range(3):
+    sum += a[i][i]
+print(sum)
+
+
+
+
+#将一个数插入以排好序的数组   ????
+a = [1,2,6,9,13,16,28,40,100,0]
+print('original list is:')
+for i in range(len(a)):
+    print(a[i])
+number = int(input('inser a new number:n'))
+end = a[9]
+if number >end:
+    a[10] = number
 else:
-    print("day = 28")
-if num in (4, 6, 9, 11):
-    print('day = 30')
+    for i in range(10):
+        if a[i]>number:
+            temp1 = a[i]
+            a[i] = number
+            for j in range(i+1,11):
+                temp2 = a[j]
+                a[j] = temp1
+                temp1 = temp2
+            break
+for i in range(11):
+    print(a[i])
+
+a = [9,6,5,4,1]
+N = len(a)
+print(a)
+for i in range(int(N/2)):
+    a[i],a[N-i-1] = a[N-i-1],a[i]
+print(a)
 
 
-
-
+def leap_year(y):
+    y = int(input("请输入一个年份："))
+    if(y%4) == 0:
+        if(y%100) == 0:
+            if(y%400) == 0:
+                print("yes")
+      # 整百年能被400整除的是闰年
+            else:
+                print("no")
+        else:
+            print("yes")
+            # 非整百年能被4整除的是闰年
+    else:
+        print("no".format(y))
 
 
