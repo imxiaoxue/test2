@@ -23,23 +23,30 @@ r = float(r)
 c = 2*math.pi*r
 print(('周长是：'),c)
 
-print(ord(input()))
+# 读入一个字符,输出其ASCII码
+a = input()
+print(ord(a))
 
 
+
+#已知三角形三边求面积和周长
 a = input()
 b = input()
 c = input()
 a = float(a)
 b = float(b)
 c = float(c)
+#海伦公式
 s = 1/2*(a+b+c)
 print(math.sqrt(s*(s-a)*(s-b)*(s-c)))
 L = a+b+c
 print(L)
 
-x = input()
-x = abs(-1)
+
+x = int(input('请输入'))
+x = abs(x)
 print("math.exp(x):",math.exp(x))
+
 
 year = int(input("请输入一个年份："))
 if(year%4) == 0:
